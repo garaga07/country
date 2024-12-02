@@ -12,12 +12,12 @@ import java.util.Date;
 @Configuration
 public class CountryApplicationConfig {
 
-  @Bean
-  public ObjectMapper objectMapper() {
-    final ObjectMapper mapper = new ObjectMapper();
-    final SimpleModule module = new SimpleModule("", Version.unknownVersion());
-    module.addSerializer(Date.class, new DateSerializer("dd.MM.yyyy"));
-    mapper.registerModule(module);
-    return mapper;
-  }
+    @Bean
+    public ObjectMapper objectMapper() {
+        final ObjectMapper mapper = new ObjectMapper();
+        final SimpleModule module = new SimpleModule("", Version.unknownVersion());
+        module.addSerializer(Date.class, new DateSerializer("dd.MM.yyyy"));
+        mapper.registerModule(module);
+        return mapper;
+    }
 }

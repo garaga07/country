@@ -11,11 +11,11 @@ public record Country(@JsonProperty("country_name")
                       String countryCode,
                       Date independencyDate) {
 
-  public static Country fromEntity(CountryEntity ce) {
-    return new Country(
-        ce.getCountryName(),
-        ce.getCountryCode(),
-        new Date()
-    );
-  }
+    public static Country fromEntity(CountryEntity ce) {
+        return new Country(
+                ce.getCountryName(),
+                ce.getCountryCode(),
+                new Date()
+        );
+    }
 }
