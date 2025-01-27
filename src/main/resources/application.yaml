@@ -37,3 +37,12 @@ spring:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
     show-sql: false
     open-in-view: false
+
+server:
+  port: 8282
+
+api:
+  version: v1.0
+
+country:
+  base-uri: 'http://127.0.0.1:8282'
