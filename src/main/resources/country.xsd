@@ -1,0 +1,77 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="country"
+           targetNamespace="country" elementFormDefault="qualified">
+
+    <!-- REQUEST TYPES -->
+
+    <xs:element name="GetAllRequest" type="xs:anyType"/>
+
+    <xs:element name="GetCountryByIdRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="id" type="xs:string"/> <!-- UUID -->
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="AddCountryRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="countryName" type="xs:string"/>
+                <xs:element name="countryCode" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="UpdateCountryRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="countryCode" type="xs:string"/>
+                <xs:element name="newCountryName" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- RESPONSE TYPES -->
+
+    <xs:element name="GetAllResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="country" type="tns:CountryResponse" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="GetCountryByIdResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="country" type="tns:CountryResponse"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="AddCountryResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="success" type="xs:boolean"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="UpdateCountryResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="country" type="tns:CountryResponse"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- CUSTOM TYPES -->
+
+    <xs:complexType name="CountryResponse">
+        <xs:sequence>
+            <xs:element name="countryName" type="xs:string"/>
+            <xs:element name="countryCode" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>
